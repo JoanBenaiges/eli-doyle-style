@@ -1,4 +1,4 @@
-/* Importación de la fuente para que se vea elegante */
+/* Fuente elegante */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 .disolv-box {
@@ -7,16 +7,21 @@
     position: relative;
     overflow: hidden;
     border: 2px solid #1a1a1a;
-    margin: auto;
+    margin: 0 auto;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+
+    /* 🔥 FIXES IMPORTANTES */
+    line-height: 0;
+    font-size: 0;
 }
 
 .disolv-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    object-position: center;
+    display: block; /* 🔥 evita espacios fantasma */
 }
 
 .disolv-overlay-bn {
@@ -25,6 +30,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+
     z-index: 2;
     opacity: 1;
     visibility: visible;
@@ -41,36 +47,43 @@
     left: 0;
     width: 100%;
     height: 100%;
+
     z-index: 1;
 }
 
-.phrase-desvanecer, .phrase-revelada {
+.phrase-desvanecer,
+.phrase-revelada {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 50px 15px 15px; /* Ajustado el padding inferior */
+    padding: 50px 15px 15px;
     box-sizing: border-box;
+
     color: white;
     font-family: 'Playfair Display', serif;
     font-size: 19px;
-    font-style: italic; /* Toque Eddie Munson */
+    font-style: italic;
     text-align: center;
+
     background: linear-gradient(transparent, rgba(0,0,0,0.9));
+
+    /* 🔥 volver a activar texto */
+    line-height: normal;
 }
 
 .phrase-revelada {
-    z-index: 3; 
-    color: #ffd700; /* Dorado para el mensaje de "ruido" */
+    z-index: 3;
+    color: #ffd700;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
 }
 
 .disolv-box:hover .disolv-overlay-bn {
     opacity: 0;
-    visibility: hidden; 
+    visibility: hidden;
 }
 
 .disolv-content-color img {
-    filter: brightness(0.6); /* Un poco más oscuro de base para que resalte el texto */
+    filter: brightness(0.6);
     transition: filter 1s ease-in-out;
 }
 
